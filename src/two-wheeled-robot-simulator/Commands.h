@@ -3,11 +3,11 @@
 #include <vector>
 
 namespace DataStructures {
-    struct RoutePoint {
+    struct Command {
         float time;
         float tetta_1;
         float tetta_2;
     };
 
-    using Route = std::vector<RoutePoint>;
+    using Commands = std::vector<Command>;
 }

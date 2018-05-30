@@ -4,13 +4,13 @@
 
 #include "RouteParser.h"
 #include "RobotParameters.h"
-#include "Route.h"
+#include "Commands.h"
 
 using namespace std;
 
 RouteParser::RouteParser():
 m_robotParameters(std::make_shared<DataStructures::RobotParameters>()),
-m_route(std::make_shared<DataStructures::Route>())
+m_commands(std::make_shared<DataStructures::Commands>())
 {}
 
 bool RouteParser::parce(std::string fileName) {
@@ -23,15 +23,15 @@ bool RouteParser::parce(std::string fileName) {
 
     string line;
 
-    while (std::getline(settingsFile, line)) {
-        istringstream iss(line);
-        if (!(iss >> m_robotParameters->b >> m_robotParameters->R)) {
-            cout << "Error parsing robot parameters" << endl;
-            return false;
-        }
+    std::getline(settingsFile, line);
+    istringstream iss(line);
+    if (!(iss >> m_robotParameters->b >> m_robotParameters->R)) {
+        cout << "Error parsing robot parameters" << endl;
+        return false;
     }
 
-    DataStructures::RoutePoint tempPoint;
+
+    DataStructures::Command tempPoint;
 
     while (std::getline(settingsFile, line)) {
         istringstream iss(line);
@@ -40,7 +40,7 @@ bool RouteParser::parce(std::string fileName) {
             return false;
         }
 
-        m_route->push_back(tempPoint);
+        m_commands->push_back(tempPoint);
     }
 
 

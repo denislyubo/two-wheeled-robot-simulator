@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "RobotParameters.h"
-#include "Route.h"
+#include "Commands.h"
 
 
 class RouteParser {
@@ -15,11 +15,11 @@ public:
     std::shared_ptr<DataStructures::RobotParameters> getRobotParameters() {
         return m_robotParameters;
     }
-    std::shared_ptr<DataStructures::Route> getRoute() {
-        return m_route;
+    std::shared_ptr<DataStructures::Commands> getCommands() {
+        return m_commands;
     }
 
 private:
     std::shared_ptr<DataStructures::RobotParameters> m_robotParameters{};
-    std::shared_ptr<DataStructures::Route> m_route{};
+    std::shared_ptr<DataStructures::Commands> m_commands{};
 };

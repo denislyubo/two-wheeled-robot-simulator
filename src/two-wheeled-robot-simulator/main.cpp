@@ -21,8 +21,12 @@ int main(int argc, char* argv[]) {
 
 	auto traceFilePath = parceArguments(argc, argv);
 
+    if(!traceFilePath.size())
+        return 1;
+
 	unique_ptr<ISimulator> simulator(new Simulator);
-	simulator->init(traceFilePath);
+	if(!simulator->init(traceFilePath))
+        cout << "Initialization completed unsuccessfully" << endl;
 	auto pos = simulator->run();
 
     cout << "Position (x, y, alpha): " << pos.x << " " << pos.y << " " << pos.alpha << endl;
