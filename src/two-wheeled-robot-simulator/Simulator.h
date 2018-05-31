@@ -14,7 +14,7 @@ public:
     std::tuple<T, T, T> run(bool logPath = false, std::string logFileName = "path.txt") override;
 
 private:
-    std::shared_ptr<DataStructures::Commands> m_route;
+    std::shared_ptr<DataStructures::Commands<T>> m_route;
     std::shared_ptr<DataStructures::RobotParameters> m_robotParameters;
     std::unique_ptr<KinematicModel<T>> m_model;
 };

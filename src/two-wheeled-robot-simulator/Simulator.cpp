@@ -7,7 +7,7 @@ using namespace std;
 
 template <typename T>
 bool Simulator<T>::init(const std::string &fileName) {
-    RouteParser parser;
+    RouteParser<T> parser;
     if (!parser.parse(fileName))
         return false;
 
@@ -24,7 +24,7 @@ template <typename T>
 std::tuple<T, T, T> Simulator<T>::run(bool logPath, std::string logFileName) {
     std::tuple<T, T, T> startRoutePoint{0, 0, 0};
     std::tuple<T, T, T> curPos{0, 0, 0};
-    DataStructures::Command prevCommand{};
+    DataStructures::Command<T> prevCommand{};
 
     std::ofstream file;
 

@@ -1,6 +1,6 @@
 set(SOURCES_TWO_WHEELED_ROBOT_SIMULATOR
 	${two-wheeled-robot-simulator_SOURCE_DIR}/../../src/two-wheeled-robot-simulator/main.cpp
-		../../src/two-wheeled-robot-simulator/ISimulator.h ../../src/two-wheeled-robot-simulator/Simulator.h ../../src/two-wheeled-robot-simulator/Simulator.cpp ../../src/two-wheeled-robot-simulator/RouteParser.h ../../src/two-wheeled-robot-simulator/RouteParser.cpp ../../src/two-wheeled-robot-simulator/RobotParameters.h ../../src/two-wheeled-robot-simulator/Commands.h ../../src/two-wheeled-robot-simulator/KinematicModel.h ../../src/two-wheeled-robot-simulator/KinematicModel.cpp)
+		../../src/two-wheeled-robot-simulator/ISimulator.h ../../src/two-wheeled-robot-simulator/Simulator.h ../../src/two-wheeled-robot-simulator/Simulator.cpp ../../src/two-wheeled-robot-simulator/RouteParser.h ../../src/two-wheeled-robot-simulator/RobotParameters.h ../../src/two-wheeled-robot-simulator/Commands.h ../../src/two-wheeled-robot-simulator/KinematicModel.h)
 
 add_executable(two-wheeled-robot-simulator ${SOURCES_TWO_WHEELED_ROBOT_SIMULATOR})
 
