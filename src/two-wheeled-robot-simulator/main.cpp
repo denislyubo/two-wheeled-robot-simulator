@@ -24,12 +24,12 @@ int main(int argc, char* argv[]) {
     if(!traceFilePath.size())
         return 1;
 
-	unique_ptr<ISimulator> simulator(new Simulator);
+	unique_ptr<ISimulator<double>> simulator(new Simulator<double>);
 	if(!simulator->init(traceFilePath))
         cout << "Initialization completed unsuccessfully" << endl;
-	auto pos = simulator->run();
+	auto pos = simulator->run(true);
 
-    cout << "Position (x, y, alpha): " << pos.x << " " << pos.y << " " << pos.alpha << endl;
+    cout << "Position (x, y, alpha): " << get<0>(pos) << " " << get<1>(pos) << " " << get<2>(pos) << endl;
 
 	return 0;
 }

@@ -7,13 +7,17 @@
 #include "RobotParameters.h"
 #include "KinematicModel.h"
 
-class Simulator : public ISimulator {
+template <typename T>
+class Simulator : public ISimulator<T> {
 public:
     bool init(const std::string& fileName) override;
-    Position run() override;
+    std::tuple<T, T, T> run(bool logPath = false, std::string logFileName = "path.txt") override;
 
 private:
     std::shared_ptr<DataStructures::Commands> m_route;
     std::shared_ptr<DataStructures::RobotParameters> m_robotParameters;
-    std::unique_ptr<KinematicModel> m_model;
+    std::unique_ptr<KinematicModel<T>> m_model;
 };
+
+template
+class Simulator<double>;

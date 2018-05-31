@@ -10,7 +10,7 @@
 class RouteParser {
 public:
     RouteParser();
-    bool parce(std::string fileName);
+    bool parse(std::string fileName);
 
     std::shared_ptr<DataStructures::RobotParameters> getRobotParameters() {
         return m_robotParameters;

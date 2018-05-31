@@ -13,7 +13,7 @@ m_robotParameters(std::make_shared<DataStructures::RobotParameters>()),
 m_commands(std::make_shared<DataStructures::Commands>())
 {}
 
-bool RouteParser::parce(std::string fileName) {
+bool RouteParser::parse(std::string fileName) {
     ifstream settingsFile(fileName);
 
     if (!settingsFile.is_open()) {
